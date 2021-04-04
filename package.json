@@ -2,7 +2,7 @@
   "name": "maratona-discover-02",
   "version": "1.0.0",
   "description": "Freelance Calculator",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "dev": "nodemon src/server.js"
   },
