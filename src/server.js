@@ -8,6 +8,8 @@ server.set("view engine", "ejs");
 // Enable static assets
 server.use(express.static("public"));
 
+server.use(express.urlencoded({ extended: true }));
+
 // Routes
 server.use(routes);
 
