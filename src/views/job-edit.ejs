@@ -29,7 +29,7 @@
     <%- include('parts/page-header', {title: 'Editar job'}) %>
 
     <div class="container flex animate-up delay-2">
-      <form id="form-job">
+      <form id="form-job" method="post" action="/job/<%= job.id %> ">
         <fieldset>
           <legend>Dados do Job</legend>
           <div class="separator light"></div>
@@ -72,7 +72,10 @@
 
       <aside class="card">
         <img src="/images/money-color.svg" alt="Imagem de Dinheiro" />
-        <p>O valor do projeto ficou em <strong>R$ 4576,00</strong></p>
+        <p>
+          O valor do projeto ficou em
+          <strong>R$ <%= job.budget.toFixed(2) %> </strong>
+        </p>
         <div class="button-group">
           <button
             class="button green"
@@ -102,8 +105,6 @@
           Quer mesmo excluir esse job? <br />
           Ele será apagado para sempre.
         </p>
-
-        <p></p>
         <footer>
           <a class="button gray" href="#">Cancelar</a>
           <button class="button red" type="submit" form="delete-job">
@@ -111,7 +112,11 @@
           </button>
         </footer>
       </div>
-      <form method="post" action="/job/delete/{JOBID}" id="delete-job"></form>
+      <form
+        method="post"
+        action="/job/delete/<%= job.id %>"
+        id="delete-job"
+      ></form>
     </div>
     <!-- end modal-wrapper -->
   </body>
