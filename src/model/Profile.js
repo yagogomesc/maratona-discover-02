@@ -1,4 +1,4 @@
-const data = {
+let data = {
   name: "Yago",
   avatar: "https://github.com/yagogomesc.png",
   "monthly-budget": 3000,
@@ -11,5 +11,8 @@ const data = {
 module.exports = {
   get() {
     return data;
+  },
+  update(newData) {
+    data = newCha;
   },
 };
