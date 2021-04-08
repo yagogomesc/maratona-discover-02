@@ -76,9 +76,14 @@ const Job = {
         };
       });
 
+      const activeJobs = updatedJobs.filter((job) => job.status === "progress");
+      const finishedJobs = updatedJobs.filter((job) => job.status === "done");
+
       return res.render(views + "/index", {
         jobs: updatedJobs,
         profile: Profile.data,
+        activeJobs,
+        finishedJobs,
       });
     },
     create(req, res) {
