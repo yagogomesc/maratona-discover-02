@@ -4,12 +4,10 @@ const Profile = require("../model/Profile");
 
 module.exports = {
   index(req, res) {
-    const jobs = Job.get();
-
     let statusCount = {
       progress: 0,
       done: 0,
-      total: jobs.length,
+      total: Job.get().length,
     };
 
     const updatedJobs = Job.get().map((job) => {
@@ -28,10 +26,16 @@ module.exports = {
       };
     });
 
+    // qtd de horas que quero trabalhar
+    // MENOS
+    // quantidade de horas/dia de cada job em progress
+    const freeHours = Profile.get()["hours-per-day"];
+
     return res.render("index", {
       jobs: updatedJobs,
       profile: Profile.get(),
       statusCount,
+      freeHours,
     });
   },
 };
