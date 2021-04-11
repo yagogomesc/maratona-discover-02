@@ -10,6 +10,7 @@ module.exports = {
       total: Job.get().length,
     };
 
+    // Total de horas por dia de cada job em progresso
     let jobTotalHours = 0;
 
     const updatedJobs = Job.get().map((job) => {
