@@ -13,6 +13,6 @@ module.exports = {
     return data;
   },
   update(newData) {
-    data = newCha;
+    data = newData;
   },
 };
